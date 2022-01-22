@@ -1,0 +1,101 @@
+<div class="sortBooks">
+  <h3>Sort all books</h3>
+  <form>
+    Sort by:
+    <select name="sortCategorySelect">
+      <option value="date">Publish Date
+      <option value="price">Price
+      <option value="title">Title
+    </select>
+  </form>
+
+  <form name="sortOrder">
+    <input type="radio" value="asc" name="radioButton" (change)="radioChangeHandler($event)">Ascending<br>
+    <input type="radio" value="dsc" name="radioButton" checked="checked" (change)="radioChangeHandler($event)">
+    Descending<br>
+  </form>
+  <button (click)="sortBooks()" class="button">Sort</button>
+
+  <div *ngFor="let book of sorted_books" class="books">
+    <h4 class="title">{{ book.title }}</h4>
+    <h5 class="author">{{ book.author }}</h5>
+    <p class="price">{{ book.price }}$</p>
+    <p class="date">Date published: {{ book.date }}</p>
+    <p class="isbn">ISBN: {{book.ISBN}}</p>
+  </div>
+</div>
+
+
+<div class="findBooks">
+  <h3>Find books</h3>
+  <form>
+    Pick a category:
+    <select name="categorySelect">
+      <option value="title">Title
+      <option value="isbn">ISBN
+      <option value="author">Author
+    </select>
+  </form>
+
+  <form [formGroup]="searchForm" (ngSubmit)="findBooks()">
+    <div>
+      <input id="value" type="text" formControlName="value">
+      <button class="button" type="submit">Search</button>
+    </div>
+  </form>
+
+  <div *ngFor="let book of found_books" class="books">
+    <h4 class="title">{{ book.title }}</h4>
+    <h5 class="author">{{ book.author }}</h5>
+    <p class="price">{{ book.price }}$</p>
+    <p class="date">Date published: {{ book.date }}</p>
+    <p class="isbn">ISBN: {{book.ISBN}}</p>
+  </div>
+</div>
+
+
+<div class="removeBook">
+  <h3>Remove book</h3>
+  <form [formGroup]="removeForm" (ngSubmit)="removeBook()">
+    <div>
+      <label for="isbn">
+        ISBN:
+      </label>
+      <input id="isbn" type="text" formControlName="isbn">
+    </div>
+    <button class="button" type="submit">Remove</button>
+  </form>
+</div>
+
+
+<div class="addBook">
+  <h3>Add/Update book</h3>
+  <form [formGroup]="addForm" (ngSubmit)="addBook()">
+    <label for="isbn">
+      ISBN:
+    </label>
+    <input id="isbn" type="text" formControlName="isbn" class="searchForm">
+    <br>
+    <label for="title">
+      Title:
+    </label>
+    <input id="title" type="text" formControlName="title" class="searchForm">
+    <br>
+    <label for="author">
+      Author:
+    </label>
+    <input id="author" type="text" formControlName="author" class="searchForm">
+    <br>
+    <label for="price">
+      Price:
+    </label>
+    <input id="price" type="number" formControlName="price" class="searchForm">
+    <br>
+    <label for="published_date">
+      Date:
+    </label>
+    <input id="published_date" type="date" formControlName="published_date">
+    <br>
+    <button class="button" type="submit">Add/Update</button>
+  </form>
+</div>

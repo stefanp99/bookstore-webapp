@@ -1,0 +1,75 @@
+.sortBooks{
+    display: inline-table;
+    margin-left:50px;
+}
+
+.findBooks{
+    display: inline-table;
+    margin-left:100px;
+}
+
+.addBook{
+    float: right;
+    display: inline-table;
+    margin-right: 100px;
+}
+
+.removeBook{
+    float: right;
+    display: inline-table;
+    margin-right:50px;
+}
+
+.books{
+    background-color: gray;
+    width: 250px;
+    border: 10px solid blanchedalmond;
+    padding: 2px;
+    margin: 5px;
+}
+
+
+.button{
+    width: 100px;
+    background-color: cornflowerblue;
+    border-radius: 18px;
+}
+
+.title{
+    text-align: center;
+    margin: 0px;
+    font-size: x-large;
+    color:green;
+}
+
+.author{
+    text-align: center;
+    margin: 2px;
+    font-size: medium;
+}
+
+.price{
+    text-align: center;
+    margin: 0px;
+    font-size: large;
+}
+
+.date{
+    margin-bottom: 3px;
+    font-size: small;
+}
+
+.isbn{
+    margin-bottom: 3px;
+    font-size: small;
+}
+
+label {
+    width:30px;
+    text-align:right;
+    padding-right:30px;
+}
+
+input, label {
+    float: left;
+}
